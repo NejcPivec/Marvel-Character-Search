@@ -22,7 +22,7 @@ You are able to search for your favorite marvel superhero or villan.
 
 ### Screenshot
 
-![Home screen]()
+![Home screen](https://github.com/NejcPivec/Marvel-Character-Search/blob/master/src/screens/homescreen.png)
 
 ### Live website
 
