@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Oswald", sans-serif;
+  background: #970303 url("./img/bg.png") no-repeat center center/cover;
+  height: 100vh;
+  color: #fff;
+}
+
+.container {
+  max-width: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.header img {
+  width: 300px;
+  object-fit: contain;
+}
+
+/* Search */
+.search {
+  height: 100px;
+}
+
+.search .form-control {
+  display: block;
+  padding: 10px;
+  font-size: 20px;
+  width: 70%;
+  margin: 0 auto;
+  border: 0;
+}
+
+.search .form-control:focus {
+  outline: none;
+}
+
+/* Cards */
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.card {
+  height: 400px;
+  cursor: pointer;
+  perspective: 1000px;
+  background-color: transparent;
+}
+
+.card h1 {
+  font-size: 25px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.card h5 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.card p {
+  font-size: 16px;
+  text-overflow: ellipsis;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(-180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  transform: rotateY(-180deg);
+}
+
+@media (max-width: 1000px) {
+  /* Cards */
+  .card-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  /* Cards */
+  .card-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  /* Cards */
+  .card-section {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
