@@ -9,6 +9,7 @@ import CharacterGrid from "./components/CharacterGrid";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [searched, setSearched] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const publickey = process.env.REACT_APP_PUBLIC_KEY;
   const privatekey = process.env.REACT_APP_PRIVATE_KEY;
@@ -27,6 +28,7 @@ function App() {
           .then((res) => res.json())
           .then((data) => {
             setCharacters(data.data.results);
+            setIsLoading(false);
           });
       } else {
         await fetch(
@@ -35,6 +37,7 @@ function App() {
           .then((res) => res.json())
           .then((data) => {
             setCharacters(data.data.results);
+            setIsLoading(false);
           });
       }
     };
@@ -45,7 +48,7 @@ function App() {
     <div className="container">
       <Header />
       <Search getSearched={(e) => setSearched(e)} />
-      <CharacterGrid characters={characters} />
+      <CharacterGrid isLoading={isLoading} characters={characters} />
     </div>
   );
 }
